@@ -1,0 +1,157 @@
+/* 1. Reset dan Pengaturan Dasar */
+:root {
+    --bg-primary: #096B68;
+    --bg-secondary: #2A4759;
+    --bg-display: #FFFBDE;
+    --bg-surface: #f0f4f8; /* Latar belakang halaman yang lembut */
+    --text-light: #FFFFFF;
+    --text-dark: #333333;
+    --accent-color: #8DBCC7;
+    --accent-hover: #6a9aaa;
+    --font-display: "Rowdies", sans-serif;
+    --font-body: "Asap", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-surface);
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Mulai dari atas */
+    padding: 20px;
+}
+
+/* 2. Kontainer Utama Aplikasi */
+.app-container {
+    width: 100%;
+    max-width: 600px; /* Lebar maksimum di layar besar */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Jarak antar elemen utama */
+}
+
+/* 3. Tampilan Segmen Angka (Telah Diperbaiki) */
+.segments-container {
+    background-color: var(--bg-primary);
+    padding: 1rem; /* Disesuaikan untuk mobile */
+    border-radius: 12px;
+    display: flex;
+    flex-wrap: nowrap; /* KUNCI PERBAIKAN: Memaksa item tetap satu baris */
+    justify-content: space-around;
+    gap: 0.75rem; /* Jarak antar segmen disesuaikan untuk mobile */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.segment {
+    background-color: var(--bg-display);
+    flex: 1; /* PERBAIKAN: Agar semua segmen punya lebar fleksibel yang sama */
+    min-width: 0; /* PERBAIKAN: Memungkinkan segmen untuk menyusut di bawah basisnya */
+    padding: 20px 5px; /* Disesuaikan agar muat */
+    border-radius: 8px;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 10vw, 4.5rem); /* Ukuran font responsif, sedikit di-tweak */
+    color: var(--text-dark);
+    line-height: 1;
+}
+
+/* 4. Baris Info (untuk Suhu & Port) */
+.info-row {
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    background-color: #EEEEEE;
+    border: 1px solid #ddd;
+}
+
+.info-label {
+    font-weight: 700;
+    padding: 0 16px;
+    border-right: 1px solid #ccc;
+    margin-right: 16px;
+    min-width: 60px; /* Lebar minimum untuk label */
+    text-align: center;
+}
+
+.info-input {
+    border: none;
+    background-color: transparent;
+    padding: 10px 0;
+    width: 100%;
+    font-size: 1.1rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.info-input:focus {
+    outline: none;
+}
+
+/* 5. Kontrol Tombol */
+.controls-container {
+    display: flex;
+    flex-wrap: wrap; /* Tombol akan turun jika tidak muat */
+    justify-content: center;
+    gap: 12px;
+}
+
+.controls-container button {
+    flex-grow: 1; /* Biarkan tombol tumbuh mengisi ruang */
+    min-width: 100px; /* Lebar minimum tombol */
+    padding: 15px 20px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1rem;
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.controls-container button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.controls-container button:active {
+    transform: translateY(0);
+    background-color: #5c7e87;
+}
+
+/* 6. Pesan Status */
+#message {
+    text-align: center;
+    font-weight: 700;
+    color: var(--bg-secondary);
+    min-height: 1.5em; /* Beri ruang agar layout tidak loncat saat pesan muncul */
+}
+
+/* 7. Media Query untuk Layar Lebih Besar (Tablet/Desktop) */
+@media (min-width: 480px) {
+    .segments-container {
+        padding: 2rem; /* Kembalikan padding besar */
+        gap: 1.5rem; /* Kembalikan jarak besar */
+    }
+
+    .segment {
+        padding: 20px 10px; /* Kembalikan padding segmen */
+    }
+}

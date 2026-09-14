@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serial App</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&family=Rowdies:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/style.css">
+
+</head>
+<body>
+
+    <main class="app-container">
+        <!-- Tampilan Segmen Angka -->
+        <div class="segments-container">
+            <div id="segment1" class="segment">0</div>
+            <div id="segment2" class="segment">0</div>
+            <div id="segment3" class="segment">0</div>
+            <div id="segment4" class="segment">0</div>
+        </div>
+        
+        <!-- Info Suhu -->
+        <div class="info-row">
+            <span class="info-label">Suhu</span>
+            <input type="text" id="temp" class="info-input" placeholder="--" disabled>
+        </div>
+        
+        <!-- Info Port -->
+        <div class="info-row">
+            <span class="info-label">Port</span>
+            <input type="text" id="port" class="info-input" value="" disabled>
+        </div>
+
+        <!-- Tombol Kontrol -->
+        <div class="controls-container">
+            <button id="open">Open</button>
+            <button id="read">Read</button>
+            <button id="close">Close</button>
+            <button id="led">LED</button>
+        </div>
+
+        <!-- Pesan Status -->
+        <p id="message"></p>
+    </main>
+    
+    <!-- Script Anda tetap sama -->
+    <script src="src/client.js"></script>
+</body>
+</html>
